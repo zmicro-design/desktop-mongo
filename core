@@ -52,7 +52,7 @@ install() {
     #   https://downloads.mongodb.com/compass/mongodb-compass-1.40.2-darwin-arm64.dmg
     #   https://downloads.mongodb.com/compass/mongodb-compass-1.40.2-darwin-x64.dmg
     # generate url
-    local url="${DESKTOP_CORE_RELEASE_DOWNLOAD}/compass/mongodb-compass-${DESKTOP_CORE_MD5SUM#v}-${platform}-${arch}.dmg"
+    local url="${DESKTOP_CORE_RELEASE_DOWNLOAD}/compass/mongodb-compass-${DESKTOP_CORE_VERSION#v}-${platform}-${arch}.dmg"
     log::debug "[$(timestamp)][desktop][$name][$kernel][$arch] url: $url, file: ${cache_file}, tmp_dir: $tmp_dir"
 
     # download
@@ -62,7 +62,7 @@ install() {
 
   # install
   log::info "[$(timestamp)][desktop][$name] installing $cache_file ..."
-  install::dmg $cache_file ${name} "MongoDB Compass.app" "/Volumes/MongoDB Compass ${DESKTOP_CORE_VERSION}"
+  install::dmg $cache_file ${name} "MongoDB Compass.app" "/Volumes/MongoDB Compass"
 
   # clean
   log::info "[$(timestamp)][desktop][$name] cleaning ..."
